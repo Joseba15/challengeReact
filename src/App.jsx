@@ -17,12 +17,15 @@ function App() {
 
 
   function startCounter (){
-    let interval = setInterval(setCounter(counter => counter + 1), 1000);
+    let interval = setInterval(() => {setCounter(counter => counter+1)}, 1000);
     setChange(interval);
   }
 
 
-
+  function stopCounter (){
+    
+    setChange();
+  }
 
 
   return(
@@ -36,7 +39,7 @@ function App() {
 
 
       <h1>Ejercicio 2</h1>
-      <p> {(counter / 60) % 60}min {counter%60}secs</p>
+      <p> {parseInt(counter / 60) % 60}min : {counter%60}secs</p>
       <button style={ {backgroundColor: "green"}} onClick={startCounter} >Start</button>
       <button style={ {backgroundColor: "red"}}  >Stop</button>
       <button style={ {backgroundColor: "yellow"}} >Reset</button>
